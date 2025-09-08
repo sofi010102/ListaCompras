@@ -38,8 +38,8 @@ main {
 }
 
 main img {
-    width: 120px;  
-    height: auto;   
+    width: 120px;
+    height: auto;
     margin-bottom: 16px;
 }
 
@@ -151,10 +151,6 @@ input[type="checkbox"] {
     width: 20px;
     height: 20px;
     cursor: pointer;
-}
-
-.checked {
-    text-decoration: line-through;
 }
 
 .container-lista {
