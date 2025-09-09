@@ -35,11 +35,13 @@ main {
 }
 
 main img {
-    width: 120px;
-    max-width: 100%;
-    height: auto;
+    width: 120px !important;
+    height: auto !important;
     margin-bottom: 16px;
     display: block;
+    object-fit: contain;
+}
+
 }
 
 h2 {
