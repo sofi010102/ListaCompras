@@ -1,8 +1,12 @@
 const mensagemListaVazia = document.querySelector(".mensagem-lista-vazia");
 
-function verificarListaVazia(lista) {
-    const itens = lista.querySelectorAll("li");
-    mensagemListaVazia.style.display = itens.length === 0 ? "block" : "none";
+function verificarListaVazia(listaDeCompras) {
+    const itensDaLista = listaDeCompras.querySelectorAll("li");
+    if (itensDaLista.length === 0){
+        mensagemListaVazia.style.display = "block";
+    } else {
+        mensagemListaVazia.style.display = "none";
+    }
 }
 
 export default verificarListaVazia;
