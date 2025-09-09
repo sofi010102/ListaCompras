@@ -2,43 +2,42 @@ export const inputItem = document.getElementById("input-item");
 let contador = 0;
 
 export function criarItemDaLista() {
-    if (inputItem.value.trim() === "") {
+    if (inputItem.value === "") {
         alert("Por favor, insira um item!");
         return;
     }
 
     const itemDaLista = document.createElement("li");
-    const container = document.createElement("div");
-    container.classList.add("lista-item-container");
+    const containerItemDaLista = document.createElement("div");
+    containerItemDaLista.classList.add("lista-item-container");
 
     const nomeItem = document.createElement("p");
     nomeItem.innerText = inputItem.value;
 
-    const inputCheckBox = document.createElement("input");
-    inputCheckBox.type = "checkbox";
-    inputCheckBox.id = "checkbox-" + contador++;
-    inputCheckBox.addEventListener("change", () => {
-        nomeItem.style.textDecoration = inputCheckBox.checked ? "line-through" : "none";
-    });
-
     const botaoEditar = document.createElement("button");
-    botaoEditar.textContent = "✏️";
+    botaoEditar.innerHTML = "✏️";
     botaoEditar.classList.add("botao-editar");
     botaoEditar.addEventListener("click", () => {
-        const novoValor = prompt("Edite o item:", nomeItem.innerText);
-        if (novoValor && novoValor.trim() !== "") nomeItem.innerText = novoValor;
+        const novoTexto = prompt("Editar item:", nomeItem.innerText);
+        if (novoTexto !== null && novoTexto.trim() !== "") {
+            nomeItem.innerText = novoTexto;
+        }
     });
 
     const botaoExcluir = document.createElement("button");
-    botaoExcluir.textContent = "🗑️";
+    botaoExcluir.innerHTML = "🗑️";
     botaoExcluir.classList.add("botao-excluir");
-    botaoExcluir.addEventListener("click", () => itemDaLista.remove());
+    botaoExcluir.addEventListener("click", () => {
+        itemDaLista.remove();
+        import("./verificarListaVazia.js").then(({ default: verificarListaVazia }) => {
+            verificarListaVazia(document.getElementById("lista-de-compras"));
+        });
+    });
 
-    container.appendChild(inputCheckBox);
-    container.appendChild(nomeItem);
-    container.appendChild(botaoEditar);
-    container.appendChild(botaoExcluir);
+    containerItemDaLista.appendChild(nomeItem);
+    containerItemDaLista.appendChild(botaoEditar);
+    containerItemDaLista.appendChild(botaoExcluir);
+    itemDaLista.appendChild(containerItemDaLista);
 
-    itemDaLista.appendChild(container);
     return itemDaLista;
 }
