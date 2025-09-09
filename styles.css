@@ -34,6 +34,13 @@ main {
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
+main img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 16px;
+    display: block;
+}
+
 h2 {
     font-family: var(--fonte-titulo);
     color: var(--cor-primaria);
@@ -137,4 +144,13 @@ form {
 ul {
     list-style-type: none;
     width: 100%;
-    p
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container-lista {
+    width: 100%;
+}
